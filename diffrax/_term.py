@@ -247,7 +247,8 @@ def _callable_to_path(x):
 # control: Shaped[Array, "*control"]
 # return: Shaped[Array, "*state"]
 def _prod(vf, control):
-    return jnp.tensordot(vf, control, axes=jnp.ndim(control))
+    # return jnp.tensordot(vf, control, axes=jnp.ndim(control))
+    return vf * control
 
 
 class _ControlTerm(AbstractTerm):
